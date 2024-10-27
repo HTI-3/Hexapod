@@ -205,27 +205,6 @@ max_delta = 10
 theta = 0.015 #rad
 
 
-
-
-for j in range(1000):
-    i = j+15
-    if (i % 30 == 0):
-        theta *=-1
-    for l in range(len(robot.leg_list)):
-        x0 = robot.leg_list[l].current_endeffector_pos_global()[0]
-        y0 = robot.leg_list[l].current_endeffector_pos_global()[1]
-        if robot.leg_list[l].mirrored:
-            x1, y1 = calc_rotation(x0, y0, theta)
-        else:
-            x1, y1 = calc_rotation(x0, y0, theta)
-
-
-        robot.leg_list[l].position = robot.leg_list[l].endeffector_pos_from_global(np.array([x1, y1,robot.leg_list[l].current_endeffector_pos_global()[2] ]))
-
-
-    robot.all_legs_move()
-    time.sleep(0.001)
-exit()
 for i in range(1000):
 
     while(np.max(leg_delta<max_delta)):
@@ -252,30 +231,6 @@ for i in range(1000):
         robot.leg_list[l].position[2] -=10
         robot.all_legs_move()
         time.sleep(0.05) #move z
-
-
-#for i in range(1000):
-
-exit()
-
-
-origin = np.asarray([0.0,50, -10])
-dx = 0.5
-max_dist_2d = 20
-
-leg1 = leg(0, 1, 2, origin, pwm1)
-leg1.move()
-time.sleep(0.1)
-q = 1
-
-
-for i in range(1000):q
-
-
-#build object leg
-#has position, bool touching ground, origin, acceptabel range
-
-#build object robot
 
 
 
